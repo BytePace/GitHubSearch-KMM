@@ -17,15 +17,15 @@ class RepositoryDetailsFragment:
     lateinit var viewModelFactory: ViewModelFactory
     override val viewModel by viewModels<RepositoryDetailsViewModel> { viewModelFactory }
 
-    companion object {
-        private const val TAG = "RepositoryDetailsFragment"
-        const val INFO = "$TAG:info"
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireArguments().getParcelable<SimpleRepositoryInfo>(INFO)?.let {
             viewModel.startInit(it)
         }
+    }
+
+    companion object {
+        private const val TAG = "RepositoryDetailsFragment"
+        const val INFO = "$TAG:info"
     }
 }
