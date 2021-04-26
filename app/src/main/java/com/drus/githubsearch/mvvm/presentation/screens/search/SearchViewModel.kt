@@ -29,7 +29,7 @@ class SearchViewModel @Inject constructor(
         router.navigateTo(Screens.repositoryDetails(it))
     }
 
-    val emptySource = MutableLiveData<Boolean>(true)
+    val isSourceEmpty = MutableLiveData<Boolean>(true)
 
     val errorStateText: LiveData<Int?>
         get() = validationUtil.validationStatusLiveData.map {
@@ -44,7 +44,7 @@ class SearchViewModel @Inject constructor(
 
     @FlowPreview
     private val searchState: LiveData<String>
-        get() = searchText.asFlow().debounce(500).asLiveData(Dispatchers.Default)
+        get() = searchText.asFlow().debounce(SEARCH_DEBOUNCE).asLiveData(Dispatchers.Default)
 
     @FlowPreview
     private val dataSource = Transformations.switchMap(searchState) {
@@ -62,7 +62,7 @@ class SearchViewModel @Inject constructor(
 
     private val boundaryCallback = object : PagedList.BoundaryCallback<SimpleRepositoryInfo>() {
         override fun onZeroItemsLoaded() {
-            emptySource.value = true
+            isSourceEmpty.value = true
         }
     }
 
@@ -79,8 +79,12 @@ class SearchViewModel @Inject constructor(
     @FlowPreview
     fun startInit(lifecycleOwner: LifecycleOwner) {
         dataSource.observe(lifecycleOwner, Observer {
-            if (it.isNotEmpty()) emptySource.value = false
+            if (it.isNotEmpty()) isSourceEmpty.value = false
             repositoriesAdapter.submitList(it)
         })
+    }
+
+    private companion object {
+        const val SEARCH_DEBOUNCE = 500L
     }
 }

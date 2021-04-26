@@ -12,7 +12,7 @@ class SearchValidationUtil @Inject constructor(): ValidationUtil<String, SearchV
 
     fun validateSearchText(text: String, showError: Boolean) {
         validationStatus = validationStatus.copy(searchText = PropertyValidationStatus(
-            if (text.length < 2) {
+            if (text.length < MIN_TEXT_LENGTH) {
                 TextValidationStatus.TOO_SHORT
             } else {
                 TextValidationStatus.CORRECT
@@ -22,11 +22,15 @@ class SearchValidationUtil @Inject constructor(): ValidationUtil<String, SearchV
 
     override fun getValidationStatus(item: String, showError: Boolean): SearchValidationStatus {
         return validationStatus.copy(searchText = PropertyValidationStatus(
-            if (item.length < 2) {
+            if (item.length < MIN_TEXT_LENGTH) {
                 TextValidationStatus.TOO_SHORT
             } else {
                 TextValidationStatus.CORRECT
             }, showError
         ))
+    }
+
+    private companion object {
+        const val MIN_TEXT_LENGTH = 2
     }
 }
