@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.drus.githubsearch.core.utils.SafeClickListener
+import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter("android:onSafeClick")
 fun View.setSafeClickListener(clickListener: View.OnClickListener) {
@@ -99,4 +100,16 @@ fun RecyclerView.setAdapterCustom(adapter: RecyclerView.Adapter<*>) {
 @BindingAdapter("android:clipToOutline")
 fun View.setClipOutline(flag: Boolean) {
     clipToOutline = flag
+}
+
+@BindingAdapter("app:errorTextRes")
+fun TextInputLayout.setErrorText(errorTextRes: Int?) {
+    isErrorEnabled = errorTextRes != null && errorTextRes > 0
+    error = errorTextRes?.let(context::getString)
+}
+
+@BindingAdapter("app:errorText")
+fun TextInputLayout.setErrorText(errorTextRes: String?) {
+    isErrorEnabled = !errorTextRes.isNullOrEmpty()
+    error = errorTextRes
 }
