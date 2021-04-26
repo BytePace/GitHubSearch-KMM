@@ -31,6 +31,7 @@ class SearchFragment :
     }
 
     private companion object {
-        val RV_STATE = "rvState"
+        private const val TAG = "SearchFragment"
+        const val RV_STATE = "$TAG:rvState"
     }
 }
