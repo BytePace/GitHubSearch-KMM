@@ -9,8 +9,10 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.databinding.adapters.TextViewBindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.drus.githubsearch.core.utils.SafeClickListener
+import com.drus.githubsearch.mvvm.presentation.view.inputLayout.UnderlinedInputTextLayout
 import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter("android:onSafeClick")
@@ -109,7 +111,22 @@ fun TextInputLayout.setErrorText(errorTextRes: Int?) {
 }
 
 @BindingAdapter("app:errorText")
-fun TextInputLayout.setErrorText(errorTextRes: String?) {
-    isErrorEnabled = !errorTextRes.isNullOrEmpty()
-    error = errorTextRes
+fun TextInputLayout.setErrorText(errorText: String?) {
+    isErrorEnabled = !errorText.isNullOrEmpty()
+    error = errorText
+}
+
+@BindingAdapter("android:afterTextChanged")
+fun UnderlinedInputTextLayout.addAfterTextChangedCallback(action: TextViewBindingAdapter.AfterTextChanged) {
+    doAfterTextChanged(action)
+}
+
+@BindingAdapter("app:errorTextRes")
+fun UnderlinedInputTextLayout.setErrorText(errorTextRes: Int?) {
+    showError(errorTextRes?.let(context::getString))
+}
+
+@BindingAdapter("app:errorText")
+fun UnderlinedInputTextLayout.setErrorText(errorText: String?) {
+    showError(errorText)
 }
