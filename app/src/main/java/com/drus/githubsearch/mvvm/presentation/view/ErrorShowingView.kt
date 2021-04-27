@@ -1,4 +1,4 @@
-package com.drus.githubsearch.mvvm.presentation.view.inputLayout
+package com.drus.githubsearch.mvvm.presentation.view
 
 interface ErrorShowingView {
     fun showError(text: String? = null)

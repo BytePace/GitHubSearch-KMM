@@ -1,19 +1,16 @@
 package com.drus.githubsearch.mvvm.presentation.view.inputLayout
 
 import android.content.Context
-import android.text.Editable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doAfterTextChanged
 import androidx.databinding.adapters.TextViewBindingAdapter
 import com.drus.githubsearch.mvvm.R
 import com.drus.githubsearch.mvvm.databinding.UnderlinedInputLayoutBinding
-import com.google.android.material.textfield.TextInputLayout
+import com.drus.githubsearch.mvvm.presentation.view.ErrorShowingView
 
 class UnderlinedInputTextLayout @JvmOverloads constructor(
     context: Context,
@@ -56,7 +53,7 @@ class UnderlinedInputTextLayout @JvmOverloads constructor(
     }
 
     override fun showError(text: String?) = with(viewBinding.errorTextView) {
-        if (text.isNullOrBlank() || isErrorEnabled) {
+        if (text.isNullOrBlank()) {
             hideError()
             return
         }
