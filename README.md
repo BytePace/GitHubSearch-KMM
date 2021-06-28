@@ -7,7 +7,7 @@
 * [Dagger2](https://developer.android.com/training/dependency-injection/dagger-android) (библиотека для управления зависимостями ([Dependency Injection](https://ru.wikipedia.org/wiki/%D0%92%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8))).
 * [terrakok/Cicerone](https://github.com/terrakok/Cicerone) (навигация по экранам в приложении).
 * [Retrofit](https://square.github.io/retrofit/) + [OkHttp](https://square.github.io/okhttp/) + [Gson](https://github.com/google/gson) (сетевой слой: отправка запросов, парсинг ответов).
-* Single Activity Application.
+* [DataBinding](https://developer.android.com/topic/libraries/data-binding) (Библиотека для упрощения связывания UI-логики с xml-разметкой экранов)
 
 Данный пример далеко не идеален, поэтому со временем будет дополняться. Если у вас есть предложения по улучшению или нашли ошибку - используйте issues и pull requests.
 
