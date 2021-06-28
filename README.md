@@ -21,7 +21,7 @@
 ## Проверенные сторонние библиотеки:
 * [InputMask](https://github.com/RedMadRobot/input-mask-android) (Маскирование вводимого текста).
 * [RxPaparazzo](https://github.com/miguelbcr/RxPaparazzo) (Получить картинки из файловой системы или фото с камеры без геморроя).
-* [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates) (Адаптеры RV с разными вью-типами - легко!)
+* [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates) (Адаптеры RV с разными вью-типами - легко!) *(Сомнительная библиотека, нужно получше проверить)*
 * [KeyboardVisibilityEvent](https://github.com/yshrsmz/KeyboardVisibilityEvent) (Библиотека для отслеживания состояния клавиатуры (Открыта\Закрыта))
 * [MPChart](https://github.com/PhilJay/MPAndroidChart) (Библиотека для рисования графиков)
 
