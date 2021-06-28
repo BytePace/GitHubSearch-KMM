@@ -12,9 +12,9 @@
 Данный пример далеко не идеален, поэтому со временем будет дополняться. Если у вас есть предложения по улучшению или нашли ошибку - используйте issues и pull requests.
 
 ## Советы по используемым технологиям:
-* **terrakok/Cicerone** лучше заменить на [terrakok/Modo](https://github.com/terrakok/Modo). Принцип тот же, но в Modo лучше реализована мультистековая навигация.
+* **terrakok/Cicerone** лучше заменить на [terrakok/Modo](https://github.com/terrakok/Modo). Принцип тот же, но в Modo лучше реализована мультистековая навигация *(По заявлению разработчика)*.
 * необходимо добавить в проект [LeakCanary](https://square.github.io/leakcanary/), чтобы вовремя устранять утечки памяти в приложении.
-* при разработке и тестировании приложения необходимо включать флаг ["Don't keep activities"](https://habr.com/ru/post/221679/) ("Вытеснение фоновых активити). Данная настройка поможет лучше обработать savingState на стадии разработки (до передачи в тестирование).
+* при разработке и тестировании приложения необходимо включать флаг ["Don't keep activities"](https://habr.com/ru/post/221679/) ("Вытеснение фоновых активити"). Данная настройка поможет лучше обработать savingState на стадии разработки (до передачи в тестирование).
 * для работы с БД используем [Room](https://developer.android.com/training/data-storage/room).
 * Также необходимо подключить [ktlint](https://github.com/pinterest/ktlint) (утилита для форматирования кода, указывает на ошибки в кодстайле).
 
@@ -38,4 +38,5 @@
 * "Паттерны проектирования" Банды 4х: [оригинал](https://docs.google.com/file/d/0B6GuCegBf3X3Tm1rZl9BUTduQm8/edit?resourcekey=0-ME3Ni9D9Wae8zLuAbNPx6w) и [сокращение](https://bool.dev/blog/detail/gof-design-patterns)
 * [on(Save/Restore)InstanceState непосредственно во ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate)
 * [Обработка сохранения состояния в приложении](https://developer.android.com/topic/libraries/architecture/saving-states)
+
 ### Успехов!
