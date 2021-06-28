@@ -13,18 +13,19 @@
 
 ## Советы по используемым технологиям:
 * **terrakok/Cicerone** лучше заменить на [terrakok/Modo](https://github.com/terrakok/Modo). Принцип тот же, но в Modo лучше реализована мультистековая навигация *(По заявлению разработчика)*.
+* вместо **DataBinding** лучше использовать [ViewBinding](https://developer.android.com/topic/libraries/view-binding) + [делегат](https://github.com/kirich1409/ViewBindingPropertyDelegate), легче в использовании и не требует писать java-код в разметке. (Пример использования будет позже. В репозитории делегата есть пример кода).
 * необходимо добавить в проект [LeakCanary](https://square.github.io/leakcanary/), чтобы вовремя устранять утечки памяти в приложении.
 * при разработке и тестировании приложения необходимо включать флаг ["Don't keep activities"](https://habr.com/ru/post/221679/) ("Вытеснение фоновых активити"). Данная настройка поможет лучше обработать savingState на стадии разработки (до передачи в тестирование).
 * для работы с БД используем [Room](https://developer.android.com/training/data-storage/room).
-* Не стоит игнорировать Scopes в Dagger2 (https://habr.com/ru/post/279641/)
+* Не стоит игнорировать Scopes в Dagger2 (https://habr.com/ru/post/279641/).
 * Также необходимо подключить [ktlint](https://github.com/pinterest/ktlint) (утилита для форматирования кода, указывает на ошибки в кодстайле).
 
 ## Проверенные сторонние библиотеки:
 * [InputMask](https://github.com/RedMadRobot/input-mask-android) (Маскирование вводимого текста).
 * [RxPaparazzo](https://github.com/miguelbcr/RxPaparazzo) (Получить картинки из файловой системы или фото с камеры без геморроя).
-* [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates) (Адаптеры RV с разными вью-типами - легко!) *(Сомнительная библиотека, нужно получше проверить)*
-* [KeyboardVisibilityEvent](https://github.com/yshrsmz/KeyboardVisibilityEvent) (Библиотека для отслеживания состояния клавиатуры (Открыта\Закрыта))
-* [MPChart](https://github.com/PhilJay/MPAndroidChart) (Библиотека для рисования графиков)
+* [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates) (Адаптеры RV с разными вью-типами - легко!) *(Сомнительная библиотека, нужно получше проверить)*.
+* [KeyboardVisibilityEvent](https://github.com/yshrsmz/KeyboardVisibilityEvent) (Библиотека для отслеживания состояния клавиатуры (Открыта\Закрыта)).
+* [MPChart](https://github.com/PhilJay/MPAndroidChart) (Библиотека для рисования графиков).
 
 ## Советы по разработке:
 * желательно не игнорировать unit-тестирование (стоит обсуждать с руководством и непосредственно с заказчиком, т.к. на написание тестов тоже уходит время).
