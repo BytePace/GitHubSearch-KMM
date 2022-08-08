@@ -14,7 +14,7 @@
         android:theme="@style/Theme.GitHubSearchMVVM">
 
         <activity
-            android:name=".presentation.activity.MainActivity"
+            android:name="com.drus.githubsearch.search.activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
 

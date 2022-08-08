@@ -1,6 +1,5 @@
 package com.drus.githubsearch.mvvm.dagger
 
-import android.app.Application
 import com.drus.githubsearch.core.utils.AppScope
 import com.drus.githubsearch.mvvm.App
 import com.drus.githubsearch.networking.NetworkModule

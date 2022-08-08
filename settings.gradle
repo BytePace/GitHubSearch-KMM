@@ -1,4 +1,5 @@
+rootProject.name = "GitHubSearchMVVM"
 include ':core'
 include ':networking'
 include ':app'
-rootProject.name = "GitHubSearchMVVM"
+include ':search'

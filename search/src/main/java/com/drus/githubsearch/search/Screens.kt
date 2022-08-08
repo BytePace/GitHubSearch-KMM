@@ -1,4 +1,4 @@
-package com.drus.githubsearch.mvvm
+package com.drus.githubsearch.search
 
 import androidx.core.os.bundleOf
 import com.drus.githubsearch.core.navigation.BaseScreen

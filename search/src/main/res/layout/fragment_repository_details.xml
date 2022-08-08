@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:text="@string/repository_details_title"
+            android:onSafeClick="@{_-> viewModel.back()}"
             android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -29,11 +30,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="56dp"
+            android:text="@{viewModel.date}"
+            android:onSafeClick="@{_-> viewModel.back()}"
             android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/purple_500"
             android:layout_marginTop="30dp"
+            android:visibility="@{!viewModel.date.empty &amp;&amp; viewModel.date != null}"
             tools:text="18.07.2143"/>
     </LinearLayout>
 </layout>
