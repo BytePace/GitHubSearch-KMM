@@ -1,14 +1,12 @@
 package com.drus.githubsearch.search.view.inputLayout
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
-import androidx.databinding.adapters.TextViewBindingAdapter
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.drus.githubsearch.search.R
 import com.drus.githubsearch.search.databinding.UnderlinedInputLayoutBinding
 import com.drus.githubsearch.search.view.ErrorShowingView
@@ -19,8 +17,8 @@ class UnderlinedInputTextLayout @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr), ErrorShowingView {
 
-    private val viewBinding =
-        UnderlinedInputLayoutBinding.inflate(LayoutInflater.from(context), this)
+    private val binding = UnderlinedInputLayoutBinding.inflate(LayoutInflater.from(context), this)
+    val editText = binding.editText
 
     init {
         orientation = VERTICAL
@@ -29,9 +27,9 @@ class UnderlinedInputTextLayout @JvmOverloads constructor(
     }
 
     private val isErrorEnabled: Boolean
-        get() = viewBinding.errorTextView.isVisible
+        get() = binding.errorTextView.isVisible
 
-    private fun initAttributes(attrs: AttributeSet?) = with(viewBinding) {
+    private fun initAttributes(attrs: AttributeSet?) = with(binding) {
         if (attrs == null) return
         context.withStyledAttributes(attrs, R.styleable.UnderlinedInputTextLayout, 0, 0) {
             titleTextView.text = getString(R.styleable.UnderlinedInputTextLayout_titleText)
@@ -41,31 +39,24 @@ class UnderlinedInputTextLayout @JvmOverloads constructor(
         }
     }
 
-    private fun initView() = with(viewBinding) {
+    private fun initView() = with(binding) {
         editText.setOnFocusChangeListener { _, hasFocus ->
             underlineView.isSelected = hasFocus
         }
     }
 
-    override fun hideError() = with(viewBinding.errorTextView) {
+    override fun hideError() = with(binding.errorTextView) {
         if (!isErrorEnabled) return
         isVisible = false
         text = null
     }
 
-    override fun showError(text: String?) = with(viewBinding.errorTextView) {
+    override fun showError(text: String?) = with(binding.errorTextView) {
         if (text.isNullOrBlank()) {
             hideError()
             return
         }
         isVisible = true
         setText(text)
-    }
-
-    @SuppressLint("RestrictedApi")
-    fun doAfterTextChanged(action: TextViewBindingAdapter.AfterTextChanged) {
-        viewBinding.editText.addTextChangedListener(
-            afterTextChanged = action::afterTextChanged
-        )
     }
 }

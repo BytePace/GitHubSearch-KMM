@@ -4,23 +4,19 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.EditText
 import androidx.activity.viewModels
-import com.drus.githubsearch.core.navigation.Navigator
 import com.drus.githubsearch.core.utils.ViewModelFactory
 import com.drus.githubsearch.search.R
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.androidx.AppNavigator
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity() {
+
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-
     private val viewModel by viewModels<MainViewModel> { viewModelFactory }
-
-    private val navigator by lazy {
-        Navigator(this, R.id.fragment_container) {
-            closeKeyboard()
-        }
-    }
+    private val navigator = AppNavigator(this, R.id.fragment_container)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

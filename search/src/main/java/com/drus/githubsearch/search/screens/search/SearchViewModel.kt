@@ -13,10 +13,10 @@ import com.drus.githubsearch.search.screens.search.adapter.RepositoriesAdapter
 import com.drus.githubsearch.search.screens.search.adapter.RepositoriesDataSourceFactory
 import com.drus.githubsearch.search.screens.search.validation.SearchValidationUtil
 import com.drus.githubsearch.search.utils.TextValidationStatus
+import com.github.terrakok.cicerone.Router
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.debounce
-import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 class SearchViewModel @Inject constructor(
