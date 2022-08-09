@@ -32,11 +32,14 @@ class RepositoryDetailsFragment : DaggerFragment(R.layout.fragment_repository_de
             }
         }
         binding.date.apply {
-            text = viewModel.date.value
             setSafeClickListener {
                 viewModel.back()
             }
-            isVisible = viewModel.date.value != null && viewModel.date.value!!.isNotEmpty()
+            viewModel.date.observe(viewLifecycleOwner) {
+                text = it
+                isVisible = it != null && it.isNotEmpty()
+            }
+
         }
     }
 
