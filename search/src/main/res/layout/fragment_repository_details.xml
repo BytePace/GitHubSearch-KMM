@@ -1,43 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.drus.githubsearch.search.screens.repositoryDetails.RepositoryDetailsViewModel" />
-    </data>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:animateLayoutChanges="true">
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:text="@string/repository_details_title"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:drawableStartCompat="@android:drawable/ic_menu_send" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/repository_details_title"
-            android:onSafeClick="@{_-> viewModel.back()}"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/orange"
-            app:drawableStartCompat="@android:drawable/ic_menu_send" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@{viewModel.date}"
-            android:onSafeClick="@{_-> viewModel.back()}"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/purple_500"
-            android:layout_marginTop="30dp"
-            android:visibility="@{!viewModel.date.empty &amp;&amp; viewModel.date != null}"
-            tools:text="18.07.2143"/>
-    </LinearLayout>
-</layout>
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="@color/purple_500"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="18.07.2143" />
+</LinearLayout>

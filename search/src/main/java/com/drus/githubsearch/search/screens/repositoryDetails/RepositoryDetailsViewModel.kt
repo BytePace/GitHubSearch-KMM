@@ -5,10 +5,10 @@ import androidx.lifecycle.viewModelScope
 import com.drus.githubsearch.core.presentation.BaseViewModel
 import com.drus.githubsearch.networking.models.SimpleRepositoryInfo
 import com.drus.githubsearch.networking.repository.GitHubRepository
+import com.github.terrakok.cicerone.Router
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 class RepositoryDetailsViewModel @Inject constructor(

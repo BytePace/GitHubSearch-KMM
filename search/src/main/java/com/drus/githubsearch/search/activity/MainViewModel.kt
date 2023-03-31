@@ -5,13 +5,13 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
-import com.drus.githubsearch.core.navigation.Navigator
 import com.drus.githubsearch.core.presentation.BaseViewModel
 import com.drus.githubsearch.search.Screens
+import com.github.terrakok.cicerone.Navigator
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 import net.yslibrary.android.keyboardvisibilityevent.Unregistrar
-import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
@@ -31,7 +31,7 @@ class MainViewModel @Inject constructor(
         holder.removeNavigator()
         holder.setNavigator(navigator)
         if (isFirstAttach) {
-            router.replaceScreen(Screens.search())
+            router.newRootChain(Screens.search())
             isFirstAttach = false
         }
     }

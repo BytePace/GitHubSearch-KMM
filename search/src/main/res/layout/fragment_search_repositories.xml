@@ -1,43 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.drus.githubsearch.search.screens.search.SearchViewModel" />
-    </data>
-
-    <LinearLayout
+    <com.drus.githubsearch.search.view.inputLayout.UnderlinedInputTextLayout
+        android:id="@+id/search_input_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:imeOptions="actionDone"
+        android:maxLength="20"
+        android:singleLine="true"
+        app:placeholderText="nhfhfn"
+        app:titleText="@string/search_hint" />
 
-        <com.drus.githubsearch.search.view.inputLayout.UnderlinedInputTextLayout
-            android:id="@+id/search_input_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:afterTextChanged="@{viewModel::onSearchTextChanged}"
-            android:imeOptions="actionDone"
-            android:maxLength="20"
-            android:singleLine="true"
-            android:layout_margin="8dp"
-            app:placeholderText="nhfhfn"
-            app:errorTextRes="@{viewModel.errorStateText}"
-            app:titleText="@string/search_hint" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:adapter="@{viewModel.repositoriesAdapter}"
-            android:orientation="vertical"
-            android:overScrollMode="never"
-            android:scrollbars="none"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:visibility="visible" />
-    </LinearLayout>
-</layout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        tools:visibility="visible" />
+</LinearLayout>

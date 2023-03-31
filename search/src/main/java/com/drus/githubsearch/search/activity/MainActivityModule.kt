@@ -16,8 +16,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
-import ru.terrakok.cicerone.Cicerone
-import ru.terrakok.cicerone.Router
 
 @Module
 interface MainActivityModule {
@@ -40,17 +38,5 @@ interface MainActivityModule {
         fun provideInputManager(activity: MainActivity): InputMethodManager {
             return activity.getSystemService<InputMethodManager>(Context.INPUT_METHOD_SERVICE)
         }
-
-        @Provides
-        @ActivityScope
-        fun provideCicerone() = Cicerone.create(Router())
-
-        @Provides
-        @ActivityScope
-        fun provideRouter(cicerone: Cicerone<Router>) = cicerone.router
-
-        @Provides
-        @ActivityScope
-        fun provideNavigatorHolder(cicerone: Cicerone<Router>) = cicerone.navigatorHolder
     }
 }

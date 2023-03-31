@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">GitHubSearchMVVM</string>
-
-    <string name="search_hint">Введите поисковый запрос</string>
-    <string name="repository_details_title">Детали репозитория</string>
-    <string name="search_text_too_small_error">Слишком короткий запрос</string>
-</resources>

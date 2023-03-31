@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-parcelize'
     id 'org.jetbrains.kotlin.kapt'
 }
 
@@ -11,6 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 31
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -30,21 +31,12 @@ android {
 }
 
 dependencies {
-    api project(":core")
 
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation(project(':core'))
 
-    api "com.squareup.retrofit2:retrofit:$retrofit_version"
-    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    api 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation 'androidx.fragment:fragment-ktx:1.5.1'
+    implementation "com.github.terrakok:cicerone:7.1"
 
-    api "com.squareup.okhttp3:okhttp:$okhttp_version"
-    api "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
-
-    // Dagger
-    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger:2.40.5"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
-
-    api 'com.google.code.gson:gson:2.8.9'
-
 }
