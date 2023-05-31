@@ -31,6 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.drus.githubsearch.search'
 }
 
 dependencies {
@@ -52,7 +53,7 @@ dependencies {
     implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3'
 
     // Dagger
-    implementation "com.google.dagger:dagger:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    implementation "com.google.dagger:dagger:2.40.5"
+    kapt "com.google.dagger:dagger-compiler:2.40.5"
+    kapt "com.google.dagger:dagger-android-processor:2.40.5"
 }

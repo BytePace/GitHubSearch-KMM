@@ -26,13 +26,14 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.drus.githubsearch.core'
 }
 
 dependencies {
     implementation 'androidx.core:core-ktx:1.3.2'
 
-    api "com.google.dagger:dagger:$dagger_version"
-    api "com.google.dagger:dagger-android-support:$dagger_version"
+    api "com.google.dagger:dagger:2.40.5"
+    api "com.google.dagger:dagger-android-support:2.40.5"
 
     api "com.github.terrakok:cicerone:7.1"
 
