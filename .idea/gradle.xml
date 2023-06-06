@@ -11,12 +11,25 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/androidApp" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/navigation" />
-            <option value="$PROJECT_DIR$/networking" />
-            <option value="$PROJECT_DIR$/search" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/core" />
+            <option value="$PROJECT_DIR$/common/navigation" />
+            <option value="$PROJECT_DIR$/common/network" />
+            <option value="$PROJECT_DIR$/common/network/api" />
+            <option value="$PROJECT_DIR$/common/network/feature" />
+            <option value="$PROJECT_DIR$/common/network/impl" />
+            <option value="$PROJECT_DIR$/common/screens" />
+            <option value="$PROJECT_DIR$/common/screens/repodetails" />
+            <option value="$PROJECT_DIR$/common/screens/repodetails/api" />
+            <option value="$PROJECT_DIR$/common/screens/repodetails/feature" />
+            <option value="$PROJECT_DIR$/common/screens/repodetails/impl" />
+            <option value="$PROJECT_DIR$/common/screens/search" />
+            <option value="$PROJECT_DIR$/common/screens/search/api" />
+            <option value="$PROJECT_DIR$/common/screens/search/feature" />
+            <option value="$PROJECT_DIR$/common/screens/search/impl" />
+            <option value="$PROJECT_DIR$/common/utils" />
           </set>
         </option>
       </GradleProjectSettings>

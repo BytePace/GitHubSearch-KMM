@@ -29,9 +29,19 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GitHubSearchMVVM"
-include(":core")
-include(":networking")
-include(":app")
-include(":search")
-include(":navigation")
+rootProject.name = "GitHubSearch-KMM"
+include(":androidApp")
+include(":common:utils")
+include(":common:core")
+include(":common:navigation")
+include(":common:network:api")
+include(":common:network:impl")
+include(":common:network:feature")
+
+include(":common:screens:search:api")
+include(":common:screens:search:impl")
+include(":common:screens:search:feature")
+
+include(":common:screens:repodetails:api")
+include(":common:screens:repodetails:impl")
+include(":common:screens:repodetails:feature")
