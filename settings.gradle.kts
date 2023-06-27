@@ -13,6 +13,7 @@ pluginManagement {
         kotlin("jvm").version(kotlinVersion)
         kotlin("multiplatform").version(kotlinVersion)
         kotlin("android").version(kotlinVersion)
+        kotlin("plugin.serialization").version(kotlinVersion)
         id("com.android.application").version(agpVersion)
         id("com.android.library").version(agpVersion)
         id("org.jetbrains.compose").version(composeVersion)
@@ -30,9 +31,30 @@ dependencyResolutionManagement {
         create("commonLibs") {
             library("kodein", "org.kodein.di:kodein-di:7.19.0")
         }
-        create("kotlinLibs") {
 
+        create("kotlinLibs") {
+            val kotlinGroup = "org.jetbrains.kotlin"
+            val kotlinXGroup = "org.jetbrains.kotlinx"
+
+            library("serialization", kotlinXGroup, "kotlinx-serialization-core")
+                .version("1.3.3")
+            library("coroutinesCore", kotlinXGroup, "kotlinx-coroutines-core")
+                .version("1.6.0")
         }
+
+        create("ktor") {
+            val ioGroup = "io.ktor"
+            val v = "1.6.2"
+
+            library("core", ioGroup, "ktor-client-core").version(v)
+            library("json", ioGroup, "ktor-client-json").version(v)
+            library("serialization", ioGroup, "ktor-client-serialization").version(v)
+            library("logging", ioGroup, "ktor-client-logging").version(v)
+            library("ios", ioGroup, "ktor-client-ios").version(v)
+            library("android", ioGroup, "ktor-client-android").version(v)
+            library("okhttp", ioGroup, "ktor-client-okhttp").version(v)
+        }
+
         create("androidLibs") {
 
         }
