@@ -13,10 +13,8 @@ pluginManagement {
         kotlin("jvm").version(kotlinVersion)
         kotlin("multiplatform").version(kotlinVersion)
         kotlin("android").version(kotlinVersion)
-
         id("com.android.application").version(agpVersion)
         id("com.android.library").version(agpVersion)
-
         id("org.jetbrains.compose").version(composeVersion)
     }
 }
@@ -27,13 +25,27 @@ dependencyResolutionManagement {
         mavenCentral()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
+
+    versionCatalogs {
+        create("commonLibs") {
+            library("kodein", "org.kodein.di:kodein-di:7.19.0")
+        }
+        create("kotlinLibs") {
+
+        }
+        create("androidLibs") {
+
+        }
+    }
 }
 
 rootProject.name = "GitHubSearch-KMM"
 include(":androidApp")
+
 include(":common:utils")
 include(":common:core")
 include(":common:navigation")
+
 include(":common:network:api")
 include(":common:network:impl")
 include(":common:network:feature")
