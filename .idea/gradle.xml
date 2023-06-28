@@ -16,20 +16,19 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/core" />
             <option value="$PROJECT_DIR$/common/navigation" />
-            <option value="$PROJECT_DIR$/common/network" />
-            <option value="$PROJECT_DIR$/common/network/api" />
-            <option value="$PROJECT_DIR$/common/network/feature" />
-            <option value="$PROJECT_DIR$/common/network/impl" />
-            <option value="$PROJECT_DIR$/common/screens" />
-            <option value="$PROJECT_DIR$/common/screens/repodetails" />
-            <option value="$PROJECT_DIR$/common/screens/repodetails/api" />
-            <option value="$PROJECT_DIR$/common/screens/repodetails/feature" />
-            <option value="$PROJECT_DIR$/common/screens/repodetails/impl" />
-            <option value="$PROJECT_DIR$/common/screens/search" />
-            <option value="$PROJECT_DIR$/common/screens/search/api" />
-            <option value="$PROJECT_DIR$/common/screens/search/feature" />
-            <option value="$PROJECT_DIR$/common/screens/search/impl" />
+            <option value="$PROJECT_DIR$/common/repodetails" />
+            <option value="$PROJECT_DIR$/common/repodetails/api" />
+            <option value="$PROJECT_DIR$/common/repodetails/data" />
+            <option value="$PROJECT_DIR$/common/repodetails/presentation" />
+            <option value="$PROJECT_DIR$/common/repodetails/view" />
+            <option value="$PROJECT_DIR$/common/search" />
+            <option value="$PROJECT_DIR$/common/search/api" />
+            <option value="$PROJECT_DIR$/common/search/data" />
+            <option value="$PROJECT_DIR$/common/search/presentation" />
+            <option value="$PROJECT_DIR$/common/search/view" />
             <option value="$PROJECT_DIR$/common/utils" />
+            <option value="$PROJECT_DIR$/node" />
+            <option value="$PROJECT_DIR$/node/compose" />
           </set>
         </option>
       </GradleProjectSettings>

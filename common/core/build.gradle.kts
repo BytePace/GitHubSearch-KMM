@@ -12,6 +12,7 @@ kotlin {
 
                 api(ktor.core)
                 implementation(ktor.serialization)
+                implementation(ktor.contentNegotiation)
                 implementation(ktor.json)
                 implementation(ktor.logging)
 

@@ -14,8 +14,10 @@ pluginManagement {
         kotlin("multiplatform").version(kotlinVersion)
         kotlin("android").version(kotlinVersion)
         kotlin("plugin.serialization").version(kotlinVersion)
+
         id("com.android.application").version(agpVersion)
         id("com.android.library").version(agpVersion)
+
         id("org.jetbrains.compose").version(composeVersion)
     }
 }
@@ -44,11 +46,14 @@ dependencyResolutionManagement {
 
         create("ktor") {
             val ioGroup = "io.ktor"
-            val v = "1.6.2"
+            val v = "2.3.1"
 
             library("core", ioGroup, "ktor-client-core").version(v)
             library("json", ioGroup, "ktor-client-json").version(v)
-            library("serialization", ioGroup, "ktor-client-serialization").version(v)
+            library("serialization", ioGroup, "ktor-serialization-kotlinx-json")
+                .version(v)
+            library("contentNegotiation", ioGroup, "ktor-client-content-negotiation")
+                .version(v)
             library("logging", ioGroup, "ktor-client-logging").version(v)
             library("ios", ioGroup, "ktor-client-ios").version(v)
             library("android", ioGroup, "ktor-client-android").version(v)
@@ -64,18 +69,18 @@ dependencyResolutionManagement {
 rootProject.name = "GitHubSearch-KMM"
 include(":androidApp")
 
+include(":node:compose")
+
 include(":common:utils")
 include(":common:core")
 include(":common:navigation")
 
-include(":common:network:api")
-include(":common:network:impl")
-include(":common:network:feature")
+include(":common:search:api")
+include(":common:search:data")
+include(":common:search:presentation")
+include(":common:search:view")
 
-include(":common:screens:search:api")
-include(":common:screens:search:impl")
-include(":common:screens:search:feature")
-
-include(":common:screens:repodetails:api")
-include(":common:screens:repodetails:impl")
-include(":common:screens:repodetails:feature")
+include(":common:repodetails:api")
+include(":common:repodetails:data")
+include(":common:repodetails:presentation")
+include(":common:repodetails:view")
