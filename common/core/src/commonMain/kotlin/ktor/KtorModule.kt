@@ -8,6 +8,9 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
+import io.ktor.client.request.accept
+import io.ktor.client.request.headers
+import io.ktor.http.URLProtocol
 import io.ktor.serialization.kotlinx.json.json
 import org.kodein.di.DI
 import org.kodein.di.bind
@@ -32,7 +35,14 @@ internal val ktorModule = DI.Module {
             }
 
             defaultRequest {
-                url("") // TODO: add git host url
+                host = "api.github.com"
+                url {
+                    protocol = URLProtocol.HTTPS
+                }
+                headers {
+                    append("Accept", "application/vnd.github+json")
+                    append("X-GitHub-Api-Version", "2022-11-28")
+                }
             }
         }
     }
