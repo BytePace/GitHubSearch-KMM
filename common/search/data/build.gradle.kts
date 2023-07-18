@@ -7,6 +7,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":common:utils"))
                 implementation(project(":common:core"))
                 api(project(":common:search:api"))
             }
