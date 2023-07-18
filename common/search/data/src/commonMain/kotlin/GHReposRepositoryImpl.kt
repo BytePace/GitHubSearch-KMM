@@ -1,9 +1,11 @@
 import ktor.KtorGHReposDataSource
 import models.Repo
+import utils.DateParser
 
 class GHReposRepositoryImpl(
     private val remoteDataSource: KtorGHReposDataSource,
 ): GHReposRepository {
+    private val dateParser = DateParser()
 
     override suspend fun searchForRepos(
         searchPattern: String,
@@ -21,7 +23,7 @@ class GHReposRepositoryImpl(
                     repoName = it.name,
                     url = it.url,
                     ownerName = it.owner.login,
-                    lastUpdatedAt = it.pushedAt,
+                    lastUpdatedAt = dateParser.parseTimeMillis(it.pushedAt),
                 )
             }
     }

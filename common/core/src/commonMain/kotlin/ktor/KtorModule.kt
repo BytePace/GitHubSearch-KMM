@@ -2,6 +2,7 @@ package ktor
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.cache.HttpCache
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.LogLevel
@@ -24,6 +25,8 @@ internal val ktorModule = DI.Module {
                 logger = Logger.SIMPLE
                 level = LogLevel.ALL
             }
+
+            install(HttpCache)
 
             install(ContentNegotiation) {
                 json(json = instance())
