@@ -1,6 +1,7 @@
 package utils
 
-import platform.Foundation.*
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 actual class DateParser actual constructor() {
     private val datePattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -12,11 +13,9 @@ actual class DateParser actual constructor() {
      * @return [Long] Milliseconds
      * */
     actual fun parseTimeMillis(dateString: String): Long {
-        val dateFormatter = NSDateFormatter().apply {
-            dateFormat = datePattern
-        }
-        val date = dateFormatter.dateFromString(dateString.trim())?.timeIntervalSince1970
-        return date?.toLong() ?: 0
+        val formatter = SimpleDateFormat(datePattern, Locale.getDefault())
+        val date = formatter.parse(dateString)
+        return date.time
     }
 
 }
