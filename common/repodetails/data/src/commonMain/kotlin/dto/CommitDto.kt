@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class CommitDto(
-    val author: CommiterDto,
-    val commiter: CommiterDto
+    val author: CommitterDto,
+    val commiter: CommitterDto
 )

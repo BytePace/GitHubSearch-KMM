@@ -4,10 +4,9 @@
 .DS_Store
 /buildSrc/.gradle
 /buildSrc/build
-/build
+*/build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
 /.idea
-/buildSrc/buildSrc/build
