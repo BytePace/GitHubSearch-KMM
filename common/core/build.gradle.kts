@@ -20,6 +20,12 @@ kotlin {
             }
         }
 
+        commonTest {
+            dependencies {
+                api(ktor.clientMock)
+            }
+        }
+
         androidMain {
             dependencies {
                 implementation(ktor.android)

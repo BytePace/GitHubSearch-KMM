@@ -6,6 +6,6 @@ plugins {
 
 kotlin {
     jvm("desktop")
-    android()
+    androidTarget()
     ios()
 }

@@ -46,7 +46,7 @@ dependencyResolutionManagement {
 
         create("ktor") {
             val ioGroup = "io.ktor"
-            val v = "2.3.1"
+            val v = "2.3.3"
 
             library("core", ioGroup, "ktor-client-core").version(v)
             library("json", ioGroup, "ktor-client-json").version(v)
@@ -58,6 +58,7 @@ dependencyResolutionManagement {
             library("ios", ioGroup, "ktor-client-ios").version(v)
             library("android", ioGroup, "ktor-client-android").version(v)
             library("okhttp", ioGroup, "ktor-client-okhttp").version(v)
+            library("clientMock", ioGroup, "ktor-client-mock").version(v)
         }
 
         create("androidLibs") {
