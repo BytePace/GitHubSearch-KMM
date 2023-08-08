@@ -24,6 +24,7 @@ import models.RepoDetails
 fun RepoDetailsScreen(
     details: RepoDetails,
     repoName: String,
+    navigateBack: () -> Unit,
 ) {
     val scrollState = rememberScrollState()
 

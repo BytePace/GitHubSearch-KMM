@@ -5,13 +5,23 @@ plugins {
     id("org.jetbrains.compose")
 }
 
+android {
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+}
+
 kotlin {
     jvm("desktop")
     androidTarget()
 
-    /*iosX64()
+    iosX64()
     iosArm64()
-    iosSimulatorArm64()*/
+    iosSimulatorArm64()
 
     sourceSets {
         val commonMain by getting {
@@ -25,12 +35,17 @@ kotlin {
         }
         val desktopMain by getting {
             dependencies {
+                implementation(compose.preview)
                 implementation(compose.desktop.common)
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(compose.preview)
+            }
+        }
 
-        /*val iosX64Main by getting
+        val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
@@ -38,6 +53,6 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
-        }*/
+        }
     }
 }

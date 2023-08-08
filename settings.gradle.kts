@@ -62,7 +62,19 @@ dependencyResolutionManagement {
         }
 
         create("androidLibs") {
+            library("core", "androidx.core:core-ktx:1.10.1")
+            library("appcompat", "androidx.appcompat:appcompat:1.6.1")
 
+            val lifecycle = "androidx.lifecycle"
+            create("lifecycle") {
+                library("runtime", lifecycle, "lifecycle-runtime-ktx").version("2.6.1")
+                library("ext", lifecycle, "lifecycle-extensions").version("2.2.0")
+
+                create("viewModel") {
+                    library("core", lifecycle, "lifecycle-viewmodel-ktx").version("2.6.1")
+                    library("compose", lifecycle, "lifecycle-viewmodel-compomse").version("2.6.1")
+                }
+            }
         }
     }
 }
